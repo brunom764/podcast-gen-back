@@ -1,21 +1,28 @@
-
-import { Body, Controller, Get, InternalServerErrorException, Param, Post } from "@nestjs/common"
-import { PodcastDto } from "./dtos"
-import { PodcastService } from "./podcast.service"
+import {
+	Body,
+	Controller,
+	Get,
+	InternalServerErrorException,
+	Param,
+	Post
+} from '@nestjs/common'
+import { PodcastDto } from './dtos'
+import { PodcastService } from './podcast.service'
 
 @Controller('podcast')
 export class PodcastController {
 	constructor(private readonly podcastService: PodcastService) {}
 
-	@Post('create')
+	@Post()
 	async createpodcast(@Body() podcast: PodcastDto) {
 		try {
 			return await this.podcastService.createPodcast(
-                podcast.title,
+				podcast.title,
 				podcast.category,
-				podcast.period,
+				podcast.period
 			)
 		} catch (error) {
+			console.log(error)
 			throw new InternalServerErrorException('podcast/create-failed')
 		}
 	}
@@ -29,7 +36,6 @@ export class PodcastController {
 		}
 	}
 
-	
 	@Get()
 	async getpodcastsByTransId() {
 		try {
@@ -38,5 +44,4 @@ export class PodcastController {
 			throw new InternalServerErrorException('podcast/get-by-transId-failed')
 		}
 	}
-
 }

@@ -1,3 +1,5 @@
+import { Injectable } from '@nestjs/common'
+
 export interface NewsResponse {
 	status: 'ok'
 	totalResults: number
@@ -20,6 +22,7 @@ interface Source {
 	name: string
 }
 
+@Injectable()
 export class GoogleNewsService {
 	private apiKey: string
 
@@ -33,6 +36,7 @@ export class GoogleNewsService {
 			`q=${category}&` +
 			`from=${period}&` +
 			'sortBy=popularity&' +
+			'sources=globo&' +
 			`apiKey=${this.apiKey}`
 
 		const req = new Request(url)
