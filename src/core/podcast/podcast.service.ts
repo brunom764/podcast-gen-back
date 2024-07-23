@@ -23,16 +23,15 @@ export class PodcastService {
 		const podcast = new Podcast(uuid.v4(), title, category, period)
 		const news = await this.googleNewsService.getNews(category, period)
 		const prompt =
-			'Filter pertinent information and generate a summary in paragraph format in Brazilian Portuguese for the following news. Remember to consider all of them in the summary and that each news has the format "Title: " and "Text": '
+			'Filter pertinent information and generate a summary in paragraph format in Brazilian Portuguese for the following news. Remember to consider all of them in the summary and that each news has the format "Title:", "Description:".'
 		const articles = []
-		console.log(news)
 		for (const article of news.articles) {
-			articles.push(`Title: ${article.title} Text: ${article.description}`)
+			articles.push({ Title: article.title, description: article.description })
 		}
-		console.log(articles)
-		const summary = await this.openAiService.generateSummary(`${prompt} ${news.articles}`)
+		const summary = await this.openAiService.generateSummary(
+			`${prompt} ${JSON.stringify(articles)}`
+		)
 		podcast.addSummary(summary)
-		console.log(summary)
 		const audioPath = await this.textToSpeechService.generateAudio(summary, podcast.id)
 		podcast.addAudioUrl(audioPath)
 		console.log(audioPath)
