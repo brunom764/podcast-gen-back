@@ -36,7 +36,7 @@ export class PodcastService {
 			'filter pertinent information and generate a summary in Brazilian Portuguese of these news using simple, informal language (as if you were telling a story to a friend) and clearly explaining the concepts that appear in the news. Remember to consider all of them in the summary and that each news item has the format “Title:”, “Description:”.'
 		const articles = []
 		for (const article of news.articles) {
-			if (articles.length < 10) {
+			if (articles.length < 5) {
 				articles.push({ Title: article.title, description: article.description });
 			  } else {
 				break;
