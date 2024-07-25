@@ -24,15 +24,19 @@ export class PodcastService {
 
 	async createPodcast(title: string, category: string, period: string) {
 		const podcast = new Podcast(uuid.v4(), title, category, period)
-		const news = await this.googleNewsService.getNews(category, period)
+		let news
+		news = await this.googleNewsService.getNews(category, period)
 		if (!news || !news.articles || news.articles.length === 0) {
-			throw new Error('No news found')
+			news = await this.googleNewsService.getRandomNews(category, period)
+			if (!news || !news.articles || news.articles.length === 0) {
+				throw new Error('No news found')
+			}
 		}
 		const prompt =
-			'Filter pertinent information and generate a summary in paragraph format in Brazilian Portuguese for the following news. Remember to consider all of them in the summary and that each news has the format "Title:", "Description:".'
+			'filter pertinent information and generate a summary in Brazilian Portuguese of these news using simple, informal language (as if you were telling a story to a friend) and clearly explaining the concepts that appear in the news. Remember to consider all of them in the summary and that each news item has the format “Title:”, “Description:”.'
 		const articles = []
 		for (const article of news.articles) {
-			if (articles.length < 5) {
+			if (articles.length < 10) {
 				articles.push({ Title: article.title, description: article.description });
 			  } else {
 				break;

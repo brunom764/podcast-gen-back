@@ -31,7 +31,7 @@ export class TextToSpeechService {
 			const [response] = await this.client.synthesizeSpeech(request)
 			const writeFile = util.promisify(fs.writeFile)
 			await writeFile(`${id}.mp3`, response.audioContent, 'binary')
-			//console.log(`Audio content written to file: ${id}.mp3.mp3`)
+			console.log(`Audio content written to file: ${id}.mp3.mp3`)
 			return `${id}.mp3`
 		} catch (error) {
 			console.error(error)
