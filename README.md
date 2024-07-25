@@ -1,29 +1,20 @@
-# Parrot - BackEnd
+# PodcastGen- BackEnd
 
-Backend do saas Parrot. Um software que une inteligência artifical e áudios, fornecendo serviços como transcrição deles, resumos e perguntas e respostas.
-
-![image](https://github.com/brunom764/parrotBack/assets/111246423/867dcbfa-9875-4267-ab4a-80b5da88c501)
-
-
-API da aplicação foi hospedada no render
-
-# Documentação
-![image](https://github.com/brunom764/parrotBack/assets/111246423/1479de61-d6de-4847-8e15-641cb01f8ad2)
+Backend do PodcastGen, um gerador de podcast a partir da IA generativa
 
 # Features
 
-* Usuários podem se cadastrar e fazer login em suas contas cadastradas ou pelo Google;
-* Usuários autenticados podem acessar todos o serviços fornecidos.
+* Usuários podem criar podcasts a partir de um tópico e dia
+* O Usuário pode acessar podcasts feitos por outros
 
-		1. Transcrição de áudio;
+# Infos 
+- A Obtenção de notícias é feita pela api do google news, utilizando a "Globo" como fonte
 
-		2. Gerar resumo da transcrição;
+- O texto do podcast é gerado pelo GPT 4 [OpenAI](https://platform.openai.com/docs/introduction).
 
-		3. Fazer perguntas sobre a transcrição.
+- O áudio do podcast é gerado pelo google-cloud/text-to-speech
 
-A transcrição é gerada através da API do [AssemblyAI](https://www.assemblyai.com/docs).
-
-O resumo e as respostas das perguntas feitas pelos usuários são gerados através da API da [OpenAI](https://platform.openai.com/docs/introduction).
+- Os áudios são armazenados num storage-blob da azure
 
 ## Contributing
 
@@ -80,13 +71,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 	reflect-metadata: 0.1.13,
 	rxjs: 7.8.1
 
-# Links
-[Miro](https://miro.com/app/board/uXjVNLM48fE=/)
 
-[Apresentação final do projeto](https://www.canva.com/design/DAF_Kev4LN4/ygINuKpue3pqizai72duog/editutm_content=DAF_Kev4LN4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
-
-[Notion](https://www.notion.so/felipegusmao/5aa41f10a15b467da2c11bbb07bfc46f?v=4f873b67c355499e8fa9df968ba0d2ae)
-
-[Protótipo](https://www.figma.com/file/LsB7paCMxAkcbBzBSBV5Oo/Projeto-Eng-Software?type=design&mode=design&t=n1S7yhugtr30AROs-1)
-
-[ScreenCast](https://youtu.be/cnvx8QowDOo)
