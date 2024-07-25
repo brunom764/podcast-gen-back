@@ -23,7 +23,7 @@ export class TextToSpeechService {
 				input: { text: text },
 				voice: {
 					languageCode: 'pt-BR',
-					name: 'pt-BR-Wavenet-B',
+					name: 'pt-BR-Wavenet-A',
 					ssml_gender: 'NEUTRAL'
 				},
 				audioConfig: { audioEncoding: 'MP3' }
