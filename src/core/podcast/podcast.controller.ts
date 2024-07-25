@@ -1,6 +1,7 @@
 import {
 	Body,
 	Controller,
+	Delete,
 	Get,
 	InternalServerErrorException,
 	Param,
@@ -42,6 +43,15 @@ export class PodcastController {
 			return await this.podcastService.list()
 		} catch (error) {
 			throw new InternalServerErrorException('podcast/get-by-transId-failed')
+		}
+	}
+
+	@Delete(':id')
+	async deletePodcastById(@Param('id') id: string) {
+		try {
+			return await this.podcastService.deletePodcastById(id)
+		} catch (error) {
+			throw new InternalServerErrorException('podcast/delete-by-id-failed')
 		}
 	}
 }

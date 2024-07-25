@@ -1,31 +1,70 @@
 # PodcastGen- BackEnd
 
-Backend do PodcastGen, um gerador de podcast a partir da IA generativa
+# Technical Description of the Project
 
-# Features
+The PodcastGen was developed to solve the difficulty people have in keeping up with the latest news due to their busy routines. Using generative artificial intelligence, PodcastGen transforms news into dynamic and engaging podcasts, allowing users to stay updated on the topics they care about while performing other activities.
 
-* Usuários podem criar podcasts a partir de um tópico e dia
-* O Usuário pode acessar podcasts feitos por outros
+## Objectives
+- Provide an innovative and efficient way for people to stay informed.
+- Transform relevant news into podcasts, making it easier to consume information.
 
-# Infos 
-- A Obtenção de notícias é feita pela api do google news, utilizando a "Globo" como fonte
+## Features
+- Users can create podcasts based on a topic and date.
+- Users can access podcasts made by others.
 
-- O texto do podcast é gerado pelo GPT 4 [OpenAI](https://platform.openai.com/docs/introduction).
+## System Components
+1. **API Integration**
+   - Connection with NewsAPI to get the news.
+2. **AI Processing**
+   - Using GPT-4 for news data analysis and creating audio scripts.
+3. **Podcast Production**
+   - Converting scripts into high-quality audio using Google Cloud Text-to-Speech.
 
-- O áudio do podcast é gerado pelo google-cloud/text-to-speech
+## Tools Used
+- **News API:** NewsAPI for updated content.
+- **Generative AI:** GPT-4 for script creation.
+- **Text-to-Speech (TTS):** Google Cloud Text-to-Speech for text-to-audio conversion.
+- **Frontend Web:** Vue.js for the user interface.
+- **Backend:** NestJS for server logic and API integration.
+- **Database:** PostgreSQL for data storage and Azure Blob Storage for storing audios.
 
-- Os áudios são armazenados num storage-blob da azure
+## Project Execution
+1. **API Integration Development**
+   - Connection and configuration of NewsAPI.
+   - Validation and filtering of relevant news.
+2. **Generative AI Implementation**
+   - Configuration of GPT-4 for analysis and script generation.
+   - Quality testing of generated scripts.
+3. **TTS System Configuration**
+   - Integration with Google Cloud Text-to-Speech.
+   - Adjusting parameters for natural and pleasant voices.
+4. **Frontend Development**
+   - Creating the interface with Vue.js.
+   - Usability and responsiveness testing.
+5. **Backend Configuration**
+   - Development with NestJS.
+   - Integration with news API and database.
+6. **Data Storage**
+   - Configuring PostgreSQL for user data and podcast history.
+   - Using Azure Blob Storage for audio storage.
+
+## Important Links
+- **Backend:** [GitHub](https://github.com/brunom764/podcast-gen-back)
+- **Frontend:** [GitHub](https://github.com/laysearaujo/PodcastGen)
+- **Deploy:** [Vercel](https://podcast-gen.vercel.app/)
+- **Prototype:** [Google Colab](https://colab.research.google.com/drive/1N0Dcub1wpvdlZuX284SMO5G_JnABAy03)
 
 ## Contributing
 
-Contribuições para o Parrot são muito bem-vindas! Se você gostaria de contribuir, siga estas instruções:
+# Contributions to Parrot are very welcome! If you would like to contribute, please follow these instructions:
 
-1. Faça um fork do repositório;
-2. Crie sua branch de funcionalidade (`git checkout -b feature/SuaFeature`);
-3. Adicione suas alterações (`git add .`);
-3. Faça commits das suas alterações (`git commit -m 'Adicionando uma funcionalidade'`);
-4. Faça push para a branch (`git push origin feature/SuaFeature`);
-5. Crie um novo Pull Request.
+1. Fork the repository;
+2. Create your feature branch (`git checkout -b feature/YourFeature`);
+3. Add your changes (`git add .`);
+4. Commit your changes (`git commit -m 'Adding a feature'`);
+5. Push to the branch (`git push origin feature/YourFeature`);
+6. Create a new Pull Request.
+
 
 ## Project setup
 ```

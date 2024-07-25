@@ -36,4 +36,12 @@ export class PodcastRepository {
 		})
 	}
 
+	async deletePodcastById(id: string) {
+		return await this.prisma.podcast.delete({
+			where: {
+				id
+			}
+		})
+	}
+
 }
